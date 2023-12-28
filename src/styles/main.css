@@ -9,7 +9,7 @@
   overflow: hidden;
 
   display: flex;
-  jutify-content: center;
+  justify-content: center;
 
   position: absolute;
   z-index: -2;

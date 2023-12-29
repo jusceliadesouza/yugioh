@@ -100,6 +100,17 @@
   justify-content: space-between;
 }
 
+#computer-cards,
+#player-cards {
+  width: 100%;
+  height: 9rem;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .card-versus__container {
   height: 18.75rem;
   margin-top: 2rem;

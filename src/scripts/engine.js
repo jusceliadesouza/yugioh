@@ -30,7 +30,7 @@ const cardData = [
     id: 0,
     name: "Blue Eyes White Dragon",
     type: "Paper",
-    img: `${pathImages}dragons.png`,
+    img: `${pathImages}dragon.png`,
     WinOf: [1],
     LoseOf: [2],
   },
@@ -64,17 +64,23 @@ async function createCardImage(idCard, fieldSide) {
   cardImage.setAttribute("data-id", idCard);
   cardImage.classList.add("card");
 
+  cardImage.addEventListener("mouseover", () => {
+    drawSelectCard(idCard);
+  });
+
   if (fieldSide === playersSides.player1) {
     cardImage.addEventListener("click", () => {
       setCardsField(cardImage.getAttribute("data-id"));
     });
   }
 
-  cardImage.addEventListener("mouseover", () => {
-    drawSelectCard(idCard);
-  });
-
   return cardImage;
+}
+
+async function drawSelectCard(index) {
+  state.cardSprites.avatar.src = cardData[index].img;
+  state.cardSprites.name.innerText = cardData[index].name;
+  state.cardSprites.type.innerText = `Attribute: ${cardData[index].type}`;
 }
 
 async function drawCards(cardNumbers, fieldSide) {
